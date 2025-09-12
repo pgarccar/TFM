@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timezone
 import pandas as pd
 
 # URL con los TLE de interés
@@ -18,7 +18,7 @@ for i in range(0, len(tle_text), 3):
     satellite_data.append([name, line1, line2])
 
 # Guardar en CSV con formato TLE_AAAA_MM_DD.csv
-today = datetime.utcnow().strftime("%Y_%m_%d")
+today = datetime.now(timezone.utc).strftime("%Y_%m_%d")
 filename = f"TLE_{today}.csv"
 df = pd.DataFrame(satellite_data, columns=["Satellite Name", "TLE Line 1", "TLE Line 2"])
 df.to_csv(filename, index=False)
