@@ -1,0 +1,17 @@
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+From github.com:pgarccar/TFM
+ * branch            main       -> FETCH_HEAD
+From github.com:pgarccar/TFM
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Archivo guardado como TLE_2025_11_07.csv
+[main 60d5117] Actualización automática de TLE: 2025_11_07
+ 1 file changed, 37 insertions(+)
+ create mode 100644 BBDD/TLE_2025_11_07.csv
+ssh: connect to host github.com port 22: Connection timed out
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+❌ ERROR: falló el push (revisa autenticación SSH o conflictos).
