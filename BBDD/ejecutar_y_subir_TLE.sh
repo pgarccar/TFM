@@ -10,9 +10,9 @@ SCRIPT="descargar_tle.py"
 cd "$(dirname "$0")"
 
 # Comprobaciones básicas
-command -v git >/dev/null || { echo "❌ ERROR: git no está instalado."; exit 1; }
-command -v python3 >/dev/null || { echo "❌ ERROR: python3 no está instalado."; exit 1; }
-git rev-parse --is-inside-work-tree >/dev/null || { echo "❌ ERROR: este directorio no es un repo Git."; exit 1; }
+command -v git >/dev/null || { echo "ERROR: git no está instalado."; exit 1; }
+command -v python3 >/dev/null || { echo "ERROR: python3 no está instalado."; exit 1; }
+git rev-parse --is-inside-work-tree >/dev/null || { echo "ERROR: este directorio no es un repo Git."; exit 1; }
 
 # Forzar remoto por SSH si aún es HTTPS
 ORIGIN_URL="$(git remote get-url origin)"
@@ -44,7 +44,7 @@ FECHA="$(date -u +%Y_%m_%d)"
 FICHERO="TLE_${FECHA}.csv"
 
 if [ ! -f "$FICHERO" ]; then
-  echo "❌ ERROR: no se generó $FICHERO."
+  echo "ERROR: no se generó $FICHERO."
   exit 1
 fi
 
@@ -59,9 +59,9 @@ git commit -m "Actualización automática de TLE: $FECHA"
 
 # Push con verificación real
 if git push origin "$BRANCH"; then
-  echo "✅ Archivo $FICHERO subido correctamente a GitHub."
+  echo "Archivo $FICHERO subido correctamente a GitHub."
 else
-  echo "❌ ERROR: falló el push (revisa autenticación SSH o conflictos)."
+  echo "ERROR: falló el push (revisa autenticación SSH o conflictos)."
   exit 1
 fi
 
