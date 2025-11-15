@@ -2,14 +2,14 @@ import requests
 from datetime import datetime, timezone
 import pandas as pd
 
-# URL con los TLE de interés
+# URL con los TLE
 url = "https://celestrak.org/NORAD/elements/gp.php?INTDES=2023-001"
 
 # Descargar los datos
 response = requests.get(url)
 tle_text = response.text.strip().splitlines()
 
-# Parsear los datos (nombre + líneas TLE)
+# Parseo de los datos (nombre + líneas TLE)
 satellite_data = []
 for i in range(0, len(tle_text), 3):
     name = tle_text[i].strip()
